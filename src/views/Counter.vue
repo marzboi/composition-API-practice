@@ -7,9 +7,29 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import useCounter from "@/composables/useCounter";
 
 export default {
+  name: "counter",
+  props: {},
+  emits: [],
+
+  setup() {
+    const { counter, increase, decrease } = useCounter(10);
+
+    return {
+      counter,
+
+      increase,
+      decrease,
+    };
+  },
+};
+</script>
+
+<style></style>
+
+<!-- export default {
   name: "counter",
   props: {},
   emits: [],
@@ -31,7 +51,4 @@ export default {
       increase: () => counter.value++,
     };
   },
-};
-</script>
-
-<style></style>
+}; -->
